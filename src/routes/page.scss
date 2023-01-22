@@ -1,0 +1,18 @@
+$css--font-face: true;
+$css--helpers: true;
+$css--body: true;
+$css--use-layer: true;
+$css--reset: true;
+$css--default-type: true;
+$css--plex: true;
+
+@import '../../node_modules/carbon-components/scss/globals/scss/_colors.scss';
+@import '../../node_modules/carbon-components/scss/components/tile/_tile.scss';
+@import '../../node_modules/carbon-components/scss/globals/scss/_css--reset.scss';
+@import '../../node_modules/carbon-components/scss/globals/scss/_css--font-face.scss';
+@import '../../node_modules/carbon-components/scss/globals/scss/_css--helpers.scss';
+@import '../../node_modules/carbon-components/scss/globals/scss/_css--body.scss';
+@import '../../node_modules/carbon-components/scss/globals/scss/_theme.scss';
+@import '../../node_modules/carbon-components/scss/globals/grid/_grid.scss';
+@import '../../node_modules/carbon-components/scss/components/number-input/_number-input.scss';
+@import '../../node_modules/carbon-components/scss/components/tile/_tile.scss';

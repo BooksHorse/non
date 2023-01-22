@@ -18,16 +18,21 @@
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"carbon-components-svelte": "^0.72.0",
+		"carbon-icons-svelte": "^11.4.0",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"prettier": "^2.8.0",
+		"prettier": "^2.8.3",
 		"prettier-plugin-svelte": "^2.8.1",
+		"sass": "^1.57.1",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.3",
 		"vite": "^4.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"carbon-components": "^10.58.3"
+	}
 }
