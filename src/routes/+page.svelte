@@ -6,6 +6,7 @@
 	let kilometers = 0;
 	let minutes = 0;
 	let add_airplane = false;
+	let additional = 0;
 </script>
 
 <svelte:head>
@@ -46,13 +47,15 @@
 		</Row>
 		<Row padding>
 		<Column><Tile>
-		<Checkbox labelText="สนามบิน (+50 บาท)" bind:checked={add_airplane}/></Tile></Column>
+		<Checkbox labelText="สนามบิน (+50 บาท)" bind:checked={add_airplane}/>
+<NumberInput hideSteppers label="ค่าใช้จ่ายเพิ่มเติม" bind:value={additional} />
+	</Tile></Column>
 		</Row>
 		<Row padding>
 			<Column>
 				<Tile>
 					<h2>
-						ค่า Taxi ประมาณ {fareCalculate(kilometers, minutes) + (add_airplane ? 50 : 0)} บาท
+						ค่า Taxi ประมาณ {fareCalculate(kilometers, minutes) + additional + (add_airplane ? 50 : 0)} บาท
 					</h2>
 					<p>ค่าประมาณคลาดเคลื่อน 3-4 บาท</p>
 				</Tile>
