@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { fareCalculate } from '../lib/calculate';
-
 	import 'carbon-components-svelte/css/g90.css';
 	import Taxi from 'carbon-icons-svelte/lib/Taxi.svelte';
-	import { NumberInput, Tile, Content, Grid, Row, Column, Link } from 'carbon-components-svelte';
+	import { NumberInput, Tile, Content, Grid, Row, Column, Link, Checkbox} from 'carbon-components-svelte';
 	let kilometers = 0;
 	let minutes = 0;
+	let add_airplane = false;
 </script>
 
 <svelte:head>
@@ -45,10 +45,14 @@
 			</Column>
 		</Row>
 		<Row padding>
+		<Column><Tile>
+		<Checkbox labelText="สนามบิน (+50 บาท)" bind:checked={add_airplane}/></Tile></Column>
+		</Row>
+		<Row padding>
 			<Column>
 				<Tile>
 					<h2>
-						ค่า Taxi ประมาณ {fareCalculate(kilometers, minutes)} บาท
+						ค่า Taxi ประมาณ {fareCalculate(kilometers, minutes) + (add_airplane ? 50 : 0)} บาท
 					</h2>
 					<p>ค่าประมาณคลาดเคลื่อน 3-4 บาท</p>
 				</Tile>
