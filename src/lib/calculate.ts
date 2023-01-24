@@ -1,7 +1,6 @@
 export function fareCalculate(kilometers: number, minutes: number) {
 	let total = 35;
 	if (kilometers <= 1) {
-		continue
 	}
 	else if ( kilometers <= 10) {
 		total += kilometers*5.50;
