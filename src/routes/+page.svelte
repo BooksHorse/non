@@ -12,7 +12,7 @@
 		Link,
 		Checkbox
 	} from 'carbon-components-svelte';
-	let kilometers = 0;
+	let kilometers = 1;
 	let minutes = 0;
 	let add_airplane = false;
 	let additional = 0;
@@ -36,11 +36,11 @@
 		<Row padding>
 			<Column>
 				<NumberInput
-					min={0}
+					min={1}
 					label="ระยะทาง (กิโลเมตร)"
 					bind:value={kilometers}
 					placeholder="ระยะทาง"
-					invalidText="ค่าต้องมากกว่า 0"
+					invalidText="ค่าต้องมากกว่าหรือเท่ากับ 1"
 				/>
 			</Column>
 		</Row>
@@ -51,7 +51,7 @@
 					label="เวลาเผื่อรถติด (นาที)"
 					bind:value={minutes}
 					placeholder="เวลาเผื่อรถติด (นาที)"
-					invalidText="ค่าต้องมากกว่า 0"
+					invalidText="ค่าต้องมากกว่าหรือเท่ากับ 0"
 				/>
 			</Column>
 		</Row>
