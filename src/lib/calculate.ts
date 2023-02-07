@@ -1,22 +1,27 @@
-export function fareCalculate(kilometers: number, minutes: number) {
-	let total = 35;
+export function fareCalculate(kilometers: number, minutes: number, isBigTaxi: boolean) {
+	let total = isBigTaxi ? 40 : 35;
 	if (kilometers <= 1) {
 		// do nothing
 	} else if (kilometers <= 10) {
-		total += kilometers * 5.5;
+		//2-10
+		total += (kilometers - 1) * 6.5;
 	} else if (kilometers <= 20) {
-		total += kilometers * 6.5;
+		//11-20
+		total += (kilometers - 1) * 7;
 	} else if (kilometers <= 40) {
-		total += kilometers * 7.5;
+		//21-40
+		total += (kilometers - 1) * 8;
 	} else if (kilometers <= 60) {
-		total += kilometers * 8;
+		//41-60
+		total += (kilometers - 1) * 8.5;
 	} else if (kilometers <= 80) {
-		total += kilometers * 9;
+		//61-80
+		total += (kilometers - 1) * 9;
 	} else {
-		total += kilometers * 10.5;
+		//80++
+		total += (kilometers - 1) * 10.5;
 	}
-
-	total += minutes * 1.5;
+	total += minutes * 3;
 
 	return total;
 }

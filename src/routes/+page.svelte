@@ -12,10 +12,11 @@
 		Link,
 		Checkbox
 	} from 'carbon-components-svelte';
-	let kilometers = 0;
+	let kilometers = 1;
 	let minutes = 0;
 	let add_airplane = false;
 	let additional = 0;
+	let is_bigtaxi = false;
 </script>
 
 <svelte:head>
@@ -35,11 +36,11 @@
 		<Row padding>
 			<Column>
 				<NumberInput
-					min={0}
+					min={1}
 					label="ระยะทาง (กิโลเมตร)"
 					bind:value={kilometers}
 					placeholder="ระยะทาง"
-					invalidText="ค่าต้องมากกว่า 0"
+					invalidText="ค่าต้องมากกว่าหรือเท่ากับ 1"
 				/>
 			</Column>
 		</Row>
@@ -47,18 +48,19 @@
 			<Column>
 				<NumberInput
 					min={0}
-					label="เวลาที่ใช้ในการเดินทาง (นาที)"
+					label="เวลาเผื่อรถติด (นาที)"
 					bind:value={minutes}
-					placeholder="เวลาที่ใช้ในการเดินทาง"
-					invalidText="ค่าต้องมากกว่า 0"
+					placeholder="เวลาเผื่อรถติด (นาที)"
+					invalidText="ค่าต้องมากกว่าหรือเท่ากับ 0"
 				/>
 			</Column>
 		</Row>
 		<Row padding>
 			<Column
 				><Tile>
+					<Checkbox labelText="แท็กซี่คันใหญ่ (เริ่มต้นที่ 40 บาท)" bind:checked={is_bigtaxi} />
 					<Checkbox labelText="สนามบิน (+50 บาท)" bind:checked={add_airplane} />
-					<NumberInput hideSteppers label="ค่าใช้จ่ายเพิ่มเติม" bind:value={additional} />
+					<NumberInput hideSteppers label="ค่าใช้จ่ายเพิ่มเติม (บาท)" bind:value={additional} />
 				</Tile></Column
 			>
 		</Row>
@@ -66,7 +68,7 @@
 			<Column>
 				<Tile>
 					<h2>
-						ค่า Taxi ประมาณ {fareCalculate(kilometers, minutes) +
+						ค่า Taxi ประมาณ {Math.ceil(fareCalculate(kilometers, minutes, is_bigtaxi)) +
 							additional +
 							(add_airplane ? 50 : 0)} บาท
 					</h2>
